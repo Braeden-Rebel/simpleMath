@@ -1,4 +1,4 @@
-interface Interval
+interface IInterval
 {
     leftBound: number | "-inf";
     rightBound: number | "inf";
@@ -8,16 +8,16 @@ interface Interval
     getLength() : number;
 }
 
-interface BoundedInterval extends Interval
+interface IBoundedInterval extends IInterval
 {
     leftBound: number;
     rightBound: number;
     getRandomWithin() : number;
 }
 
-interface UnboundedInterval extends Interval
+interface IUnboundedInterval extends IInterval
 {
 
 }
 
-export {Interval, BoundedInterval, UnboundedInterval}
+export {IInterval, IBoundedInterval, IUnboundedInterval}
