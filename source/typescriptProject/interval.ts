@@ -1,17 +1,18 @@
 interface Interval
 {
-    leftBound: number | "inf" | "-inf",
-    rightBound: number | "inf" | "-inf",
-    leftContain: boolean,
-    rightContain: boolean,
-    getLength() : number
+    leftBound: number | "-inf";
+    rightBound: number | "inf";
+    leftContain: boolean;
+    rightContain: boolean;
+    isWithin(num : number) : boolean;
+    getLength() : number;
 }
 
 interface BoundedInterval extends Interval
 {
-    leftBound: number,
-    rightBound: number,
-    getRandomWithin() : number
+    leftBound: number;
+    rightBound: number;
+    getRandomWithin() : number;
 }
 
 interface UnboundedInterval extends Interval
