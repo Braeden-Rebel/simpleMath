@@ -85,4 +85,4 @@ class UnboundedInterval implements IInterval
 
 type Interval = BoundedInterval | UnboundedInterval
 
-export {}
+export {IInterval, UnboundedInterval, BoundedInterval, Interval}
