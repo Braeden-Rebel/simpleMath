@@ -1,23 +1,38 @@
 interface IInterval
 {
-    leftBound: number | "-inf";
-    rightBound: number | "inf";
-    leftContain: boolean;
-    rightContain: boolean;
-    isWithin(num : number) : boolean;
-    getLength() : number;
+    isWithin(x : number) : boolean;
 }
 
-interface IBoundedInterval extends IInterval
+class BoundedInterval implements IInterval
 {
+    constructor(leftBound : number, leftIncluded : boolean, rightBound : number, rightIncluded : boolean)
+    {
+        this.leftBound = leftBound;
+        this.leftIncluded = leftIncluded;
+        this.rightBound = rightBound;
+        this.rightIncluded = rightIncluded;
+    }
     leftBound: number;
+    leftIncluded: boolean;
     rightBound: number;
-    getRandomWithin() : number;
+    rightIncluded: boolean;
+
+    isWithin(x: number): boolean {
+        if (x == this.leftBound)
+        {
+            return this.leftIncluded;
+        }
+        else if (x == this.rightBound)
+        {
+            return this.rightIncluded;
+        }
+        else
+        {
+            return this.leftBound < x && x < this.rightBound;
+        }
+    }
 }
 
-interface IUnboundedInterval extends IInterval
-{
+type Interval = BoundedInterval
 
-}
-
-export {IInterval, IBoundedInterval, IUnboundedInterval}
+export {}
