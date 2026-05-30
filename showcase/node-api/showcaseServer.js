@@ -8,7 +8,8 @@ app.use(express.text());
 app.post("/ParseInterval", (req, res) => {
     console.log("GOT IT!");
     console.log(req.body);
-    res.send("Togetha");
+    var validJSON = {valid: true}
+    res.send(JSON.stringify(validJSON));
     res.end();
 });
 

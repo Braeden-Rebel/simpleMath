@@ -5,4 +5,5 @@ var response = await fetch("ParseInterval", {
     body: "(5, 10]"
 })
 
-console.log(response);
+var data = await response.json();
+console.log(data.valid);
